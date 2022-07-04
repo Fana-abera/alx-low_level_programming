@@ -1,7 +1,8 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-/**
+#include<stdlib.h>
+#include<stdio.h>
+#include<time.h>
+
+/*
 *main - Entry point, positive or negative, print sign of random number
 *@void: Empty parameter list for main
 *Decription: positive, zero and negative values
@@ -10,10 +11,8 @@
 int main(void)
 {
 	int n;
-
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
 	if (n > 0)
 	{
 		printf("%d is positive\n", n);
