@@ -1,27 +1,48 @@
+#include "main.h"
 #include <stdio.h>
-
 /**
- * main - even valued
- *
- * Return: Always 0
- */
+*main - print the first 98 fibonacci numbers.
+*Description: print the first 98 fibonacci numbers.
+*Return: Nothing.
+*/
 int main(void)
 {
-	long int n1, n2, fn, afn;
+	int count;
+	unsigned long x, y, z, a, b, c, take;
 
-	n1 = 1;
-	n2 = 2;
-	fn = afn = 0;
-	while (fn <= 4000000)
+	x = 0;
+	y = 1;
+	for (count = 1; count <= 90; count++)
 	{
-		fn = n1 + n2;
-		n1 = n2;
-		n2 = fn;
-		if ((n1 % 2) == 0)
-		{
-			afn += n1;
-		}
+		z = x + y;
+		x = y;
+		y = z;
+		printf("%lu, ", z);
 	}
-	printf("%ld\n", afn);
+
+	a = x % 1000;
+	x = x / 1000;
+	b = y % 1000;
+	y = y / 1000;
+
+	while (count <= 98)
+	{
+		take = (a + b) / 1000;
+		c = (a + b) - take * 1000;
+		z = (x + y) + take;
+		x = y;
+		y = z;
+		a = b;
+		b = c;
+
+		if (c >= 100)
+			printf("%lu%lu", z, c);
+		else
+			printf("%lu0%lu", z, c);
+		if (count < 98)
+			printf(", ");
+		count++;
+	}
+	putchar('\n');
 	return (0);
 }
