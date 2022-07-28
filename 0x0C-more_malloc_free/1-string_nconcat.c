@@ -1,46 +1,51 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * string_nconcat - concatenates to strings
+ * string_nconcat - concatenates two strings.
  * @s1: first string
  * @s2: second string
- * @n: amount of bytes
- *
- * Return: pointer shall point to a newly allocated space in memory
+ * @n: index
+ * Return: char pointer
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *sout;
-	unsigned int i, j, k, l;
+	char *p;
+	unsigned int size1 = 0, size2 = 0, i;
 
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
 
-	for (i = 0; s1[i] != '\0'; i++)
-		;
+	while (s1[size1] != '\0')
+	{
+		size1++;
+	}
 
-	for (j = 0; s2[j] != '\0'; j++)
-		;
+	while (s2[size2] != '\0')
+	{
+		size2++;
+	}
 
-	if (n > j)
-		n = j;
+	if (n > size2)
+	n = size2;
+	p = malloc((size1 + n + 1) * sizeof(char));
 
-	k = i + n;
+	if (p == NULL)
+		return (0);
 
-	sout = malloc(k + 1);
+	for (i = 0; i < size1; i++)
+	{
+		p[i] = s1[i];
+	}
 
-	if (sout == NULL)
-		return (NULL);
+	for (; i < (size1 + n); i++)
+	{
+		p[i] = s2[i - size1];
+	}
+	p[i] = '\0';
 
-	for (i = 0; l < k; l++)
-		if (l < i)
-			sout[l] = s1[l];
-		else
-			sout[l] = s2[l - i];
-	sout[l] = '\0';
-
-	return (sout);
+return (p);
 }
