@@ -1,1 +1,1 @@
-This is a C - Doubly linked lists project.
+This is an ALX-Low Level Programming C Project
