@@ -5,6 +5,7 @@
  * @head: pointer to the first element in the list
  * @n: member data of the structure dlistint_t
  * Return: address to the new node or NULL if failed
+ *
  */
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
